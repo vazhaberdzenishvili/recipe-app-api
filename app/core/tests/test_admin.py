@@ -84,17 +84,17 @@ class AdminSiteTests(TestCase):
         self.assertEqual(res.status_code, 200)
 
 
-    # def test_create_user(self):
-    #     """Test creating a new user."""
-    #     url = reverse('admin:core_user_add')
-    #     data = {
-    #         'email': 'test@example.com',
-    #         'name': 'Test User',
-    #         'password1': 'password123',
-    #         'password2': 'password123',
-    #     }
-    #     # Submit the form to create a new user
-    #     res = self.client.post(url, data)
-    #     # Check if the user was successfully created
-    #     self.assertEqual(res.status_code, 302)  # Check for a redirect indicating success
-    #     self.assertTrue(User.objects.filter(email='test@example.com').exists())  # Check if the user exists in the database
+    def test_create_user(self):
+        """Test creating a new user."""
+        url = reverse('admin:core_user_add')
+        data = {
+            'email': 'test@example.com',
+            'name': 'Test User',
+            'password1': 'password123',
+            'password2': 'password123',
+        }
+        # Submit the form to create a new user
+        res = self.client.post(url, data)
+        # Check if the user was successfully created
+        self.assertEqual(res.status_code, 302)  # Check for a redirect indicating success
+        self.assertTrue(User.objects.filter(email='test@example.com').exists())  # Check if the user exists in the database
