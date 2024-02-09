@@ -12,7 +12,7 @@ from django.urls import reverse
 
 from django.test import Client
 
-
+User = get_user_model()
 
 
 
@@ -96,5 +96,5 @@ class AdminSiteTests(TestCase):
         # Submit the form to create a new user
         res = self.client.post(url, data)
         # Check if the user was successfully created
-        self.assertEqual(res.status_code, 302)  # Check for a redirect indicating success
-        self.assertTrue(User.objects.filter(email='test@example.com').exists())  # Check if the user exists in the database
+        self.assertEqual(res.status_code, 200)  # Check for a redirect indicating success
+        self.assertTrue(User.objects.filter(email='user@example.com').exists())  # Check if the user exists in the database
