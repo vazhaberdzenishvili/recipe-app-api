@@ -6,10 +6,10 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 from core import models
 
+
 def create_user(email='user@example.com', password='testpass123'):
     """Create a return a new user."""
     return get_user_model().objects.create_user(email, password)
-
 
 
 class ModelTests(TestCase):
@@ -68,7 +68,6 @@ class ModelTests(TestCase):
         )
 
         self.assertEqual(str(recipe), recipe.title)
-
 
     def test_create_tag(self):
         """Test creating a tag is successful."""
